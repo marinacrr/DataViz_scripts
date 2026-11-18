@@ -1,5 +1,5 @@
 '''
-Create a multiple axis figure to showcase MaX codes citation trend (cumulative) over time.
+Create a multiple axis figure to showcase MaX codes citation trend over time.
 For each code, citations have been renormalized to the max value.
 '''
 
@@ -13,15 +13,15 @@ import sys
 # Extremes for annotation
 extremes = {
     "QE": ("5k", "32k"),
-    "SIESTA": ("7k", "16k"),
     "YAMBO": ("0.2k", "1.4k"),
+    "SIESTA": ("7k", "16k"),
+    "FLEUR": ("0", "0.03k"),
     "BigDFT": ("0.1k", "0.5k"),
-    "FLEUR": (0, "0.03k")
 }
 
 path = "/home/jeanne/Desktop/Dataviz/images"
 
-c = "Antique"
+c = "Lively" # "Antique"
 colors = load_cmap(c).colors
 
 style_other = dict(color="grey", alpha=0.4, linewidth=0.6)
@@ -31,7 +31,7 @@ style_extremes = dict(ha="center", va="center", fontsize=6, weight="bold")
 
 # Load data from Google Sheet
 sheet_id = "1c7-F5h6zkg2YfET8vISMCT9Dz5Gr4h121obIF2IpSmI"
-gid = "1463414175"
+gid = "1321476171"
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
 
 # Download CSV data
@@ -99,4 +99,4 @@ for color, code, ax in zip(colors, max_codes, axs.flat):
 for ax in axs.flat[len(max_codes):]:
     ax.remove()
 
-plt.savefig("%s/2026_max_cits_lollipops.png" %path, bbox_inches='tight', dpi=150)
+plt.savefig("%s/2026_max_cits_lollipops_cumulative.png" %path, bbox_inches='tight', dpi=150)
