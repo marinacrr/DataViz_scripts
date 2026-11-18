@@ -1,5 +1,5 @@
 '''
-Create a multiple axis figure to showcase MaX codes citation trend over time.
+Create a single plot to showcase MaX codes citation trend over time.
 For each code, citations have been renormalized to the max value.
 '''
 
